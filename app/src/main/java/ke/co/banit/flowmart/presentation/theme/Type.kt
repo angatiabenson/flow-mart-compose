@@ -1,4 +1,4 @@
-package ke.co.banit.flowmart.ui.theme
+package ke.co.banit.flowmart.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
@@ -8,7 +8,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import ke.co.banit.flowmart.R
 
-// Assuming you've added Roboto font files to your `res/font` directory
 val Roboto = FontFamily(
     Font(R.font.roboto_thin, FontWeight.Thin),
     Font(R.font.roboto_light, FontWeight.Light),

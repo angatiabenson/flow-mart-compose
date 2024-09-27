@@ -1,4 +1,4 @@
-package ke.co.banit.flowmart.ui.theme
+package ke.co.banit.flowmart.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.lightColorScheme
