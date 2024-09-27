@@ -11,11 +11,11 @@ import androidx.compose.ui.unit.dp
 object Dimensions {
 
     // **Padding and Margin Sizes**
-    val paddingXs = 4.dp      // Extra Small Padding
-    val paddingSm = 8.dp      // Small Padding
-    val paddingMd = 16.dp     // Medium Padding
-    val paddingLg = 24.dp     // Large Padding
-    val paddingXl = 32.dp     // Extra Large Padding
+    val xs = 4.dp      // Extra Small Padding
+    val sm = 8.dp      // Small Padding
+    val md = 16.dp     // Medium Padding
+    val lg = 24.dp     // Large Padding
+    val xl = 32.dp     // Extra Large Padding
 
     // **Icon Sizes**
     val iconXs = 12.dp         // Extra Small Icon

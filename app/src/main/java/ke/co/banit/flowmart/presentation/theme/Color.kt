@@ -9,50 +9,72 @@ val Primary = Color(0xFFFFA300)
 val Secondary = Color(0xFF005CFF)
 
 // Light Mode Colors
-val LightPrimaryContainer = Color(0xFFFFECCC)
-val LightOnPrimaryContainer = Color(0xFF2E1D00)
-val LightSecondaryContainer = Color(0xFFD8E2FF)
-val LightOnSecondaryContainer = Color(0xFF001849)
-val LightTertiary = Color(0xFF685E40)
-val LightOnTertiary = Color(0xFFFFFFFF)
-val LightTertiaryContainer = Color(0xFFF1E2BC)
-val LightOnTertiaryContainer = Color(0xFF221B04)
-val LightBackground = Color(0xFFFFFBFF)
-val LightOnBackground = Color(0xFF1F1B16)
-val LightSurface = Color(0xFFFFFBFF)
-val LightOnSurface = Color(0xFF1F1B16)
-val LightSurfaceVariant = Color(0xFFF0E0CF)
-val LightOnSurfaceVariant = Color(0xFF4F4539)
-val LightOutline = Color(0xFF817567)
-val LightError = Color(0xFFBA1A1A)
-val LightOnError = Color(0xFFFFFFFF)
-val LightErrorContainer = Color(0xFFFFDAD6)
-val LightOnErrorContainer = Color(0xFF410002)
+val LightPrimaryContainer = Color(0xFFFFE0B2)          // Light Orange
+val LightOnPrimaryContainer = Color(0xFF3E2723)       // Dark Brown
+
+val LightSecondaryContainer = Color(0xFFB3E5FC)        // Light Blue
+val LightOnSecondaryContainer = Color(0xFF002B6F)     // Dark Blue
+
+val LightTertiary = Color(0xFF388E3C)                  // Medium Green
+val LightOnTertiary = Color(0xFFFFFFFF)               // White
+
+val LightTertiaryContainer = Color(0xFFA5D6A7)         // Light Green
+val LightOnTertiaryContainer = Color(0xFF1B5E20)      // Dark Green
+
+val LightBackground = Color(0xFFFFFBFF)               // Off-White
+val LightOnBackground = Color(0xFF1F1B16)             // Dark Brown
+
+val LightSurface = Color(0xFFFFFBFF)                   // Off-White
+val LightOnSurface = Color(0xFF1F1B16)                 // Dark Brown
+
+val LightSurfaceVariant = Color(0xFFE0E0E0)            // Light Gray
+val LightOnSurfaceVariant = Color(0xFF424242)         // Dark Gray
+
+val LightOutline = Color(0xFF9E9E9E)                   // Medium Gray
+
+val LightError = Color(0xFFBA1A1A)                     // Dark Red
+val LightOnError = Color(0xFFFFFFFF)                   // White
+
+val LightErrorContainer = Color(0xFFFFDAD6)            // Light Red
+val LightOnErrorContainer = Color(0xFF410002)         // Dark Red
+
 
 // Dark Mode Colors
-val DarkPrimary = Color(0xFFFFB945)
-val DarkOnPrimary = Color(0xFF4C2E00)
-val DarkPrimaryContainer = Color(0xFF6E4300)
-val DarkOnPrimaryContainer = Color(0xFFFFDEB7)
-val DarkSecondary = Color(0xFFAEC6FF)
-val DarkOnSecondary = Color(0xFF002C75)
-val DarkSecondaryContainer = Color(0xFF0040A3)
-val DarkOnSecondaryContainer = Color(0xFFD8E2FF)
-val DarkTertiary = Color(0xFFD5C6A1)
-val DarkOnTertiary = Color(0xFF393016)
-val DarkTertiaryContainer = Color(0xFF50472A)
-val DarkOnTertiaryContainer = Color(0xFFF1E2BC)
-val DarkBackground = Color(0xFF232323)
-val DarkOnBackground = Color(0xFFEAE1D9)
-val DarkSurface = Color(0xFF1F1B16)
-val DarkOnSurface = Color(0xFFEAE1D9)
-val DarkSurfaceVariant = Color(0xFF4F4539)
-val DarkOnSurfaceVariant = Color(0xFFD3C4B4)
-val DarkOutline = Color(0xFF9C8F80)
-val DarkError = Color(0xFFFFB4AB)
-val DarkOnError = Color(0xFF690005)
-val DarkErrorContainer = Color(0xFF93000A)
-val DarkOnErrorContainer = Color(0xFFFFDAD6)
+val DarkPrimary = Color(0xFFFFB74D)                    // Light Orange
+val DarkOnPrimary = Color(0xFF452700)                  // Dark Brown
+
+val DarkPrimaryContainer = Color(0xFFBF360C)            // Burnt Orange
+val DarkOnPrimaryContainer = Color(0xFFFFF3E0)         // Light Cream
+
+val DarkSecondary = Color(0xFF81D4FA)                  // Light Blue
+val DarkOnSecondary = Color(0xFF003C73)                // Dark Blue
+
+val DarkSecondaryContainer = Color(0xFF004A8C)          // Medium Blue
+val DarkOnSecondaryContainer = Color(0xFFD1E9FF)       // Light Blue
+
+val DarkTertiary = Color(0xFF66BB6A)                   // Light Green
+val DarkOnTertiary = Color(0xFF003E00)                // Dark Green
+
+val DarkTertiaryContainer = Color(0xFF2E7D32)          // Dark Green
+val DarkOnTertiaryContainer = Color(0xFFD0F8CE)        // Light Green
+
+val DarkBackground = Color(0xFF1F1B16)                 // Dark Brown
+val DarkOnBackground = Color(0xFFEAE1D9)               // Light Cream
+
+val DarkSurface = Color(0xFF1F1B16)                     // Dark Brown
+val DarkOnSurface = Color(0xFFEAE1D9)                   // Light Cream
+
+val DarkSurfaceVariant = Color(0xFF616161)              // Medium Gray
+val DarkOnSurfaceVariant = Color(0xFFBDBDBD)           // Light Gray
+
+val DarkOutline = Color(0xFFBDBDBD)                     // Light Gray
+
+val DarkError = Color(0xFFFF8A80)                       // Light Red
+val DarkOnError = Color(0xFF690005)                     // Dark Red
+
+val DarkErrorContainer = Color(0xFF93000A)              // Dark Red
+val DarkOnErrorContainer = Color(0xFFFFDAD6)           // Light Red
+
 
 val LightColorScheme = lightColorScheme(
     primary = Primary,
