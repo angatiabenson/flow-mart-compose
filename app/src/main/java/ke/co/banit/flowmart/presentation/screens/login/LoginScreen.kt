@@ -17,7 +17,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -28,10 +27,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ke.co.banit.flowmart.presentation.components.MOutlinedTextField
@@ -44,7 +41,7 @@ import ke.co.banit.flowmart.presentation.theme.Dimensions
  * Copyright (c) 2024 BanIT
  */
 @Composable
-fun LoginScreen(onSignUpClick: () -> Unit) {
+fun LoginScreen(onSignUpClick: () -> Unit, onLoginSuccess: () -> Unit) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -106,7 +103,7 @@ fun LoginScreen(onSignUpClick: () -> Unit) {
                         label = "Password",
                         keyboardType = KeyboardType.Password,
                         hasRoundedCorners = true,
-                        isPassword = true,
+                        enabledTogglePassword = true,
                         prefixIcon = {
                             Icon(
                                 imageVector = Icons.Default.Lock,
@@ -120,9 +117,7 @@ fun LoginScreen(onSignUpClick: () -> Unit) {
 
                     Button(
                         onClick = {
-                            //validate input
-                            //login
-                            //navigate to home screen
+                            onLoginSuccess()
                         },
                         modifier = Modifier
                             .fillMaxWidth()
@@ -166,5 +161,5 @@ fun SignUpPrompt(onSignUpClick: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun LoginScreenPreview() {
-    LoginScreen(onSignUpClick = {})
+    LoginScreen(onSignUpClick = {}, onLoginSuccess = {})
 }

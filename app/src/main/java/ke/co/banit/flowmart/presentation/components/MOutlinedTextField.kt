@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -25,7 +24,6 @@ import compose.icons.FontAwesomeIcons
 import compose.icons.fontawesomeicons.Solid
 import compose.icons.fontawesomeicons.solid.Eye
 import compose.icons.fontawesomeicons.solid.EyeSlash
-import ke.co.banit.flowmart.R
 import ke.co.banit.flowmart.presentation.theme.Dimensions
 
 /**
@@ -43,7 +41,7 @@ fun MOutlinedTextField(
     keyboardType: KeyboardType = KeyboardType.Text,
     hasRoundedCorners: Boolean = true,
     prefixIcon: @Composable (() -> Unit)? = null,
-    isPassword: Boolean = false,
+    enabledTogglePassword: Boolean = false,
     ) {
     var passwordVisible by remember { mutableStateOf(false) }
     OutlinedTextField(
@@ -59,7 +57,7 @@ fun MOutlinedTextField(
         modifier = modifier
             .fillMaxWidth(),
         trailingIcon = {
-            if (isPassword) {
+            if (enabledTogglePassword) {
                 val image: ImageVector = if (passwordVisible) {
                     FontAwesomeIcons.Solid.EyeSlash
                 } else {
