@@ -54,8 +54,4 @@ object Dimensions {
     val cardRadiusXs = 6.dp               // Extra Small Card Radius
     val cardElevation = 4.dp              // Standard Card Elevation
     val cardElevationSm = 2.dp            // Small Card Elevation
-
-    // **Grid View Spacing**
-    val gridViewSpacing = 8.dp            // Standard Grid View Spacing
-    val gridViewSpacingSm = 4.dp          // Small Grid View Spacing
 }
