@@ -43,7 +43,7 @@ fun MOutlinedTextField(
     prefixIcon: @Composable (() -> Unit)? = null,
     enabledTogglePassword: Boolean = false,
     ) {
-    var passwordVisible by remember { mutableStateOf(false) }
+    var passwordVisible by remember { mutableStateOf(!enabledTogglePassword) }
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,

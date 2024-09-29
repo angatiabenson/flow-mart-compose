@@ -47,6 +47,7 @@ import compose.icons.fontawesomeicons.solid.User
 import ke.co.banit.flowmart.R
 import ke.co.banit.flowmart.data.model.Product
 import ke.co.banit.flowmart.data.model.SummaryData
+import ke.co.banit.flowmart.presentation.components.CategoryCreationBottomSheet
 import ke.co.banit.flowmart.presentation.components.MDropdownMenu
 import ke.co.banit.flowmart.presentation.components.MDropdownMenuItem
 import ke.co.banit.flowmart.presentation.theme.Dimensions
@@ -58,6 +59,7 @@ import ke.co.banit.flowmart.presentation.theme.Dimensions
  */
 @Composable
 fun HomeScreen() {
+    var showBottomSheet by remember { mutableStateOf(false) }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -67,7 +69,11 @@ fun HomeScreen() {
         Spacer(modifier = Modifier.height(Dimensions.lg))
         SummaryCard(SummaryData("Fruits", 10, 5))
         Spacer(modifier = Modifier.height(Dimensions.lg))
-        QuickActionsSection(onAddProduct = {}, onAddCategory = {}, onViewAllProducts = {})
+        QuickActionsSection(onAddProduct = {
+
+        }, onAddCategory = {
+            showBottomSheet = true
+        }, onViewAllProducts = {})
         Spacer(modifier = Modifier.height(Dimensions.lg))
         RecentProductsSection(
             recentProducts =
@@ -80,6 +86,14 @@ fun HomeScreen() {
             onViewAllRecentProducts = {},
             onEditProduct = {},
             onDeleteProduct = {}
+        )
+
+        CategoryCreationBottomSheet(
+            isVisible = showBottomSheet,
+            onDismiss = { showBottomSheet = false },
+            onCategoryCreated = { newCategory ->
+                showBottomSheet = false
+            }
         )
     }
 }
@@ -253,8 +267,6 @@ fun ProductCard(
     onEdit: () -> Unit,
     onDelete: () -> Unit
 ) {
-    var expanded by remember { mutableStateOf(false) }
-
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
