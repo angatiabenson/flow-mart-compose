@@ -1,5 +1,6 @@
 package ke.co.banit.flowmart.presentation.screens.main.components
 
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -18,7 +19,6 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import compose.icons.FontAwesomeIcons
 import compose.icons.fontawesomeicons.Solid
 import compose.icons.fontawesomeicons.solid.Home
-import compose.icons.fontawesomeicons.solid.LayerGroup
 import compose.icons.fontawesomeicons.solid.Shapes
 import compose.icons.fontawesomeicons.solid.User
 import ke.co.banit.flowmart.presentation.navigation.Screen
@@ -33,7 +33,7 @@ import ke.co.banit.flowmart.presentation.navigation.Screen
 fun MBottomAppBar(modifier: Modifier = Modifier, navController: NavController) {
     val items = listOf(Screen.Home, Screen.Categories, Screen.Profile)
     var selectedItem by remember { mutableIntStateOf(0) }
-    NavigationBar(modifier = modifier, containerColor = MaterialTheme.colorScheme.background) {
+    NavigationBar(modifier = modifier.height(80.dp), containerColor = MaterialTheme.colorScheme.background, ) {
         items.forEachIndexed { index, screen ->
             NavigationBarItem(
                 icon = {

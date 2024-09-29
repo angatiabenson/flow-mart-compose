@@ -96,7 +96,7 @@ fun CategoryCreationBottomSheet(
                         }
                     },
                     modifier = Modifier.fillMaxWidth().height(48.dp),
-                    enabled = false
+                    enabled = categoryName.isNotEmpty()
                 ) {
                     Text("Save", style = MaterialTheme.typography.titleMedium)
                 }
