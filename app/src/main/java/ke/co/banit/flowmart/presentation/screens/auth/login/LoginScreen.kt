@@ -1,4 +1,4 @@
-package ke.co.banit.flowmart.presentation.screens.login
+package ke.co.banit.flowmart.presentation.screens.auth.login
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -31,8 +31,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import ke.co.banit.flowmart.presentation.components.MOutlinedTextField
 import ke.co.banit.flowmart.presentation.components.ThemedAppLogo
+import ke.co.banit.flowmart.presentation.navigation.Screen
 import ke.co.banit.flowmart.presentation.theme.Dimensions
 
 /**
@@ -41,7 +43,7 @@ import ke.co.banit.flowmart.presentation.theme.Dimensions
  * Copyright (c) 2024 BanIT
  */
 @Composable
-fun LoginScreen(onSignUpClick: () -> Unit, onLoginSuccess: () -> Unit) {
+fun LoginScreen(navController: NavHostController) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -116,9 +118,9 @@ fun LoginScreen(onSignUpClick: () -> Unit, onLoginSuccess: () -> Unit) {
                     Spacer(modifier = Modifier.height(Dimensions.lg))
 
                     Button(
-                        onClick = {
-                            onLoginSuccess()
-                        },
+                        onClick = { navController.navigate(Screen.Main.route) {
+                            popUpTo(Screen.Login.route) { inclusive = true }
+                        }},
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(48.dp),
@@ -126,7 +128,7 @@ fun LoginScreen(onSignUpClick: () -> Unit, onLoginSuccess: () -> Unit) {
                     ) {
                         Text("Login")
                     }
-                    SignUpPrompt(onSignUpClick = onSignUpClick)
+                    SignUpPrompt(onSignUpClick = { navController.navigate(Screen.SignUp.route) })
                 }
 
                 Spacer(modifier = Modifier.height(Dimensions.spaceBetweenSections))
@@ -156,10 +158,4 @@ fun SignUpPrompt(onSignUpClick: () -> Unit) {
             )
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun LoginScreenPreview() {
-    LoginScreen(onSignUpClick = {}, onLoginSuccess = {})
 }

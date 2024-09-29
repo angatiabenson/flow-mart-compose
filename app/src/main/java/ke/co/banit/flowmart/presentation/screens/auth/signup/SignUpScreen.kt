@@ -1,4 +1,4 @@
-package ke.co.banit.flowmart.presentation.screens.signup
+package ke.co.banit.flowmart.presentation.screens.auth.signup
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -33,8 +33,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import ke.co.banit.flowmart.presentation.components.MOutlinedTextField
 import ke.co.banit.flowmart.presentation.components.ThemedAppLogo
 import ke.co.banit.flowmart.presentation.theme.Dimensions
@@ -46,7 +46,7 @@ import ke.co.banit.flowmart.presentation.theme.Dimensions
  */
 
 @Composable
-fun SignUpScreen(onLoginClick: () -> Unit) {
+fun SignUpScreen(navController: NavHostController) {
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var phoneNumber by remember { mutableStateOf("") }
@@ -182,7 +182,9 @@ fun SignUpScreen(onLoginClick: () -> Unit) {
                 ) {
                     Text("Sign Up")
                 }
-                LogInPrompt(onLoginClick = onLoginClick)
+                LogInPrompt(onLoginClick = {
+                    navController.popBackStack()
+                })
             }
 
             Spacer(modifier = Modifier.height(Dimensions.spaceBetweenSections))
@@ -212,10 +214,4 @@ fun LogInPrompt(onLoginClick: () -> Unit) {
             )
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun LoginScreenPreview() {
-    SignUpScreen(onLoginClick = {})
 }

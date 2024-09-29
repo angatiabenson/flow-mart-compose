@@ -39,6 +39,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import compose.icons.FontAwesomeIcons
 import compose.icons.fontawesomeicons.Solid
 import compose.icons.fontawesomeicons.solid.Box
@@ -50,6 +52,7 @@ import ke.co.banit.flowmart.data.model.SummaryData
 import ke.co.banit.flowmart.presentation.components.CategoryCreationBottomSheet
 import ke.co.banit.flowmart.presentation.components.MDropdownMenu
 import ke.co.banit.flowmart.presentation.components.MDropdownMenuItem
+import ke.co.banit.flowmart.presentation.navigation.Screen
 import ke.co.banit.flowmart.presentation.theme.Dimensions
 
 /**
@@ -58,8 +61,9 @@ import ke.co.banit.flowmart.presentation.theme.Dimensions
  * Copyright (c) 2024 BanIT
  */
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     var showBottomSheet by remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -70,7 +74,7 @@ fun HomeScreen() {
         SummaryCard(SummaryData("Fruits", 10, 5))
         Spacer(modifier = Modifier.height(Dimensions.lg))
         QuickActionsSection(onAddProduct = {
-
+            navController.navigate(Screen.CreateProduct.route)
         }, onAddCategory = {
             showBottomSheet = true
         }, onViewAllProducts = {})
