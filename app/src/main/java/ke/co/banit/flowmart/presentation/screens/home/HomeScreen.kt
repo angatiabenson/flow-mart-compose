@@ -2,7 +2,6 @@ package ke.co.banit.flowmart.presentation.screens.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
@@ -19,13 +18,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -46,9 +43,12 @@ import compose.icons.FontAwesomeIcons
 import compose.icons.fontawesomeicons.Solid
 import compose.icons.fontawesomeicons.solid.Box
 import compose.icons.fontawesomeicons.solid.FolderPlus
+import compose.icons.fontawesomeicons.solid.User
 import ke.co.banit.flowmart.R
 import ke.co.banit.flowmart.data.model.Product
 import ke.co.banit.flowmart.data.model.SummaryData
+import ke.co.banit.flowmart.presentation.components.MDropdownMenu
+import ke.co.banit.flowmart.presentation.components.MDropdownMenuItem
 import ke.co.banit.flowmart.presentation.theme.Dimensions
 
 /**
@@ -63,12 +63,12 @@ fun HomeScreen() {
             .fillMaxSize()
             .padding(Dimensions.defaultSpace)
     ) {
-        GreetingSection("Angatia")
-        Spacer(modifier = Modifier.height(16.dp))
+        GreetingSection("Angatia Benson")
+        Spacer(modifier = Modifier.height(Dimensions.lg))
         SummaryCard(SummaryData("Fruits", 10, 5))
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(Dimensions.lg))
         QuickActionsSection(onAddProduct = {}, onAddCategory = {}, onViewAllProducts = {})
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(Dimensions.lg))
         RecentProductsSection(
             recentProducts =
             listOf(
@@ -86,10 +86,18 @@ fun HomeScreen() {
 
 @Composable
 fun GreetingSection(userName: String) {
-    Text(
-        text = "Hello, $userName!",
-        style = MaterialTheme.typography.headlineSmall
-    )
+    Row {
+        Icon(
+            imageVector = FontAwesomeIcons.Solid.User,
+            contentDescription = "User Icon",
+            modifier = Modifier.size(Dimensions.iconLg)
+        )
+        Spacer(modifier = Modifier.width(Dimensions.md))
+        Column {
+            Text(text = "Welcome Back,", style = MaterialTheme.typography.bodyMedium)
+            Text(text = userName, style = MaterialTheme.typography.titleMedium)
+        }
+    }
 }
 
 @Composable
@@ -224,7 +232,6 @@ fun RecentProductsSection(
                 Text("View All")
             }
         }
-        Spacer(modifier = Modifier.height(Dimensions.spaceBetweenItems))
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             state = rememberLazyListState()
@@ -253,9 +260,11 @@ fun ProductCard(
             .fillMaxWidth()
             .padding(vertical = Dimensions.sm)
     ) {
-        Row(modifier = Modifier
-            .padding(Dimensions.sm)
-            .height(IntrinsicSize.Min)) {
+        Row(
+            modifier = Modifier
+                .padding(Dimensions.sm)
+                .height(IntrinsicSize.Min)
+        ) {
             Image(
                 bitmap = ImageBitmap.imageResource(id = R.drawable.app_logo),
                 contentDescription = product.name,
@@ -288,30 +297,20 @@ fun ProductCard(
                 )
             }
 
-            Box {
-                IconButton(onClick = { expanded = true }) {
-                    Icon(Icons.Default.MoreVert, contentDescription = "More options")
-                }
-                DropdownMenu(
-                    expanded = expanded,
-                    onDismissRequest = { expanded = false }
-                ) {
-                    DropdownMenuItem(
-                        text = { Text("Edit") },
-                        onClick = {
-                            onEdit()
-                            expanded = false
-                        }
+            MDropdownMenu(
+                items = listOf(
+                    MDropdownMenuItem(
+                        text = "Edit",
+                        icon = Icons.Default.Edit,
+                        onClick = onEdit
+                    ),
+                    MDropdownMenuItem(
+                        text = "Delete",
+                        icon = Icons.Default.Delete,
+                        onClick = onDelete
                     )
-                    DropdownMenuItem(
-                        text = { Text("Delete") },
-                        onClick = {
-                            onDelete()
-                            expanded = false
-                        }
-                    )
-                }
-            }
+                )
+            )
         }
     }
 }
