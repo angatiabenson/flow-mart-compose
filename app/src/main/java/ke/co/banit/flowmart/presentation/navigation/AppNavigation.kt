@@ -38,7 +38,7 @@ fun AppNavigation() {
         }
 
         composable(Screen.CreateProduct.route) {
-            CreateProductScreen()
+            CreateProductScreen(navController = navController)
         }
     }
 }

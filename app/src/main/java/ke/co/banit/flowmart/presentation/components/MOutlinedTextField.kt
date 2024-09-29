@@ -40,15 +40,18 @@ fun MOutlinedTextField(
     label: String,
     keyboardType: KeyboardType = KeyboardType.Text,
     hasRoundedCorners: Boolean = true,
+    readOnly: Boolean = false,
     prefixIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
     enabledTogglePassword: Boolean = false,
-    ) {
+) {
     var passwordVisible by remember { mutableStateOf(!enabledTogglePassword) }
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
         label = { Text(label, style = MaterialTheme.typography.labelLarge) },
         singleLine = true,
+        readOnly = readOnly,
         leadingIcon = prefixIcon,
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
         shape = if (hasRoundedCorners) RoundedCornerShape(Dimensions.borderRadiusLg) else RectangleShape,
@@ -66,9 +69,16 @@ fun MOutlinedTextField(
                 val description = if (passwordVisible) "Hide password" else "Show password"
 
                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                    Icon(imageVector = image, contentDescription = description, modifier = Modifier.size(Dimensions.iconMd))
+                    Icon(
+                        imageVector = image,
+                        contentDescription = description,
+                        modifier = Modifier.size(Dimensions.iconMd)
+                    )
                 }
+            } else {
+                trailingIcon?.invoke()
             }
         },
+        textStyle = MaterialTheme.typography.bodyMedium
     )
 }
