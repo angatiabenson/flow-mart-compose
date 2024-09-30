@@ -18,7 +18,6 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExtendedFloatingActionButton
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -70,12 +69,18 @@ fun CategoriesScreen() {
                 text = { Text("Add Category", style = MaterialTheme.typography.labelMedium) },
             )
         },
-        modifier = Modifier.padding(Dimensions.defaultSpace)
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLowest,
+        modifier = Modifier.padding(
+            top = Dimensions.defaultSpace,
+            start = Dimensions.defaultSpace,
+            end = Dimensions.defaultSpace
+        )
     ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .padding(0.dp)
         ) {
             Spacer(modifier = Modifier.height(Dimensions.lg))
             CategoryGridSection(onCategoryClick = {})

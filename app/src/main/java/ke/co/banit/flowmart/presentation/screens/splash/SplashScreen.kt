@@ -34,6 +34,7 @@ fun SplashScreen(navController: NavHostController) {
     }
     Surface(
         modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.surfaceContainerLowest,
     ) {
         Box(
             modifier = Modifier

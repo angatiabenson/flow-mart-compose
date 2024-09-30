@@ -30,6 +30,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import ke.co.banit.flowmart.presentation.components.MButton
 import ke.co.banit.flowmart.presentation.components.MOutlinedTextField
 import ke.co.banit.flowmart.presentation.components.MScreenTitle
 import ke.co.banit.flowmart.presentation.components.ThemedAppLogo
@@ -123,16 +124,11 @@ fun ProfileScreen() {
                 }
             )
             Spacer(modifier = Modifier.height(Dimensions.spaceBetweenSections))
-            Button(
+            MButton(
                 onClick = {
                 },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSecondaryContainer)
-            ) {
-                Text("Save Changes", style = MaterialTheme.typography.bodyLarge)
-            }
+                text = "Save Changes"
+            )
         }
     }
 }

@@ -1,5 +1,6 @@
 package ke.co.banit.flowmart.presentation.screens.auth.signup
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import ke.co.banit.flowmart.presentation.components.MButton
 import ke.co.banit.flowmart.presentation.components.MOutlinedTextField
 import ke.co.banit.flowmart.presentation.components.ThemedAppLogo
 import ke.co.banit.flowmart.presentation.theme.Dimensions
@@ -55,7 +57,8 @@ fun SignUpScreen(navController: NavHostController) {
 
     Surface(
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxSize(),
+        color = MaterialTheme.colorScheme.surfaceContainerLowest,
     ) {
         Column(
             modifier = Modifier
@@ -66,12 +69,10 @@ fun SignUpScreen(navController: NavHostController) {
                 modifier = Modifier
                     .weight(0.6f)
                     .fillMaxWidth(),
-                contentAlignment = Alignment.Center
+                contentAlignment = Alignment.Center,
             ) {
                 ThemedAppLogo()
             }
-
-            Spacer(modifier = Modifier.height(Dimensions.spaceBetweenSections))
 
             Column(
                 modifier = Modifier
@@ -169,19 +170,15 @@ fun SignUpScreen(navController: NavHostController) {
                 )
                 Spacer(modifier = Modifier.height(Dimensions.lg))
 
-                Button(
+                MButton(
                     onClick = {
                         //validate input
                         //login
                         //navigate to home screen
                     },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSecondaryContainer)
-                ) {
-                    Text("Sign Up")
-                }
+                    text = "Sign Up",
+                )
+
                 LogInPrompt(onLoginClick = {
                     navController.popBackStack()
                 })

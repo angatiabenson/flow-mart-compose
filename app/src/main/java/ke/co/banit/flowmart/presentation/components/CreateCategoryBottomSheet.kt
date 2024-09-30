@@ -51,13 +51,14 @@ fun CategoryCreationBottomSheet(
             onDismissRequest = {
                 onDismiss()
                 categoryName = ""
-            }
+            },
+            containerColor = MaterialTheme.colorScheme.surfaceContainerLowest,
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(Dimensions.md),
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
                     "Create New Category",
@@ -87,7 +88,7 @@ fun CategoryCreationBottomSheet(
                     }
                 )
                 Spacer(modifier = Modifier.height(Dimensions.spaceBetweenSections))
-                Button(
+                MButton(
                     onClick = {
                         if (categoryName.isNotBlank()) {
                             onCategoryCreated(categoryName)
@@ -95,11 +96,9 @@ fun CategoryCreationBottomSheet(
                             onDismiss()
                         }
                     },
-                    modifier = Modifier.fillMaxWidth().height(48.dp),
+                    text = "Create Category",
                     enabled = categoryName.isNotEmpty()
-                ) {
-                    Text("Save", style = MaterialTheme.typography.titleMedium)
-                }
+                )
             }
         }
     }

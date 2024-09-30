@@ -48,6 +48,7 @@ fun LoginScreen(navController: NavHostController) {
 
     Surface(
         modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.surfaceContainerLowest,
     ) {
         Column(
             modifier = Modifier

@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -24,6 +22,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import ke.co.banit.flowmart.presentation.components.MButton
 import ke.co.banit.flowmart.presentation.components.MOutlinedTextField
 import ke.co.banit.flowmart.presentation.components.MScreenTitle
 import ke.co.banit.flowmart.presentation.components.MTopAppBar
@@ -52,6 +51,7 @@ fun CreateProductScreen(navController: NavHostController) {
                 navController = navController
             )
         },
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLowest,
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -101,19 +101,14 @@ fun CreateProductScreen(navController: NavHostController) {
 
                 Spacer(modifier = Modifier.height(Dimensions.lg))
             }
-            Button(
+            MButton(
                 onClick = {
                     //validate input
                     //login
                     //navigate to home screen
                 },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSecondaryContainer)
-            ) {
-                Text("Create Product")
-            }
+                text = "Create Product"
+            )
         }
     }
 }
