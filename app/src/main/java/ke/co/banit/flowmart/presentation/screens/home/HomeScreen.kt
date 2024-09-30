@@ -40,7 +40,6 @@ import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import compose.icons.FontAwesomeIcons
 import compose.icons.fontawesomeicons.Solid
 import compose.icons.fontawesomeicons.solid.Box
@@ -52,6 +51,7 @@ import ke.co.banit.flowmart.data.model.SummaryData
 import ke.co.banit.flowmart.presentation.components.CategoryCreationBottomSheet
 import ke.co.banit.flowmart.presentation.components.MDropdownMenu
 import ke.co.banit.flowmart.presentation.components.MDropdownMenuItem
+import ke.co.banit.flowmart.presentation.components.ThemedAppLogo
 import ke.co.banit.flowmart.presentation.navigation.Screen
 import ke.co.banit.flowmart.presentation.theme.Dimensions
 
@@ -67,7 +67,11 @@ fun HomeScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(Dimensions.defaultSpace)
+            .padding(
+                top = Dimensions.defaultSpace,
+                end = Dimensions.defaultSpace,
+                start = Dimensions.defaultSpace
+            )
     ) {
         GreetingSection("Angatia Benson")
         Spacer(modifier = Modifier.height(Dimensions.lg))
@@ -121,7 +125,8 @@ fun GreetingSection(userName: String) {
 @Composable
 fun SummaryCard(summaryData: SummaryData) {
     ElevatedCard(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)
     ) {
         Column(modifier = Modifier.padding(Dimensions.defaultSpace)) {
             Text(
@@ -204,7 +209,8 @@ fun QuickActionCard(
     ElevatedCard(
         onClick = onClick,
         modifier = Modifier.width(115.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -274,21 +280,21 @@ fun ProductCard(
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = Dimensions.sm)
+            .padding(vertical = Dimensions.xs),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)
     ) {
         Row(
             modifier = Modifier
                 .padding(Dimensions.sm)
                 .height(IntrinsicSize.Min)
         ) {
-            Image(
-                bitmap = ImageBitmap.imageResource(id = R.drawable.app_logo),
-                contentDescription = product.name,
+
+            ThemedAppLogo(
                 modifier = Modifier
                     .size(80.dp)
-                    .align(Alignment.CenterVertically),
-                contentScale = ContentScale.Fit
+                    .align(Alignment.CenterVertically)
             )
+
             Spacer(modifier = Modifier.width(Dimensions.sm))
             Column(
                 modifier = Modifier

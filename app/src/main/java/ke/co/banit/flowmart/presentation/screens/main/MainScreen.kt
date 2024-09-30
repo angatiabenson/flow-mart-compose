@@ -1,6 +1,7 @@
 package ke.co.banit.flowmart.presentation.screens.main
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,6 +25,7 @@ fun MainScreen(navController: NavHostController) {
     val mainNavController = rememberNavController()
 
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLowest,
         bottomBar = {
             MBottomAppBar(navController = mainNavController)
         }

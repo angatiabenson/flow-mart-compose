@@ -11,10 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -29,9 +28,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import ke.co.banit.flowmart.presentation.components.MButton
 import ke.co.banit.flowmart.presentation.components.MOutlinedTextField
 import ke.co.banit.flowmart.presentation.components.ThemedAppLogo
 import ke.co.banit.flowmart.presentation.navigation.Screen
@@ -44,7 +43,7 @@ import ke.co.banit.flowmart.presentation.theme.Dimensions
  */
 @Composable
 fun LoginScreen(navController: NavHostController) {
-    var username by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
     Surface(
@@ -85,14 +84,14 @@ fun LoginScreen(navController: NavHostController) {
                     Spacer(modifier = Modifier.height(Dimensions.spaceBetweenItems))
 
                     MOutlinedTextField(
-                        value = username,
-                        onValueChange = { username = it },
-                        label = "Username",
-                        keyboardType = KeyboardType.Text,
+                        value = email,
+                        onValueChange = { email = it },
+                        label = "Email Address",
+                        keyboardType = KeyboardType.Email,
                         prefixIcon = {
                             Icon(
-                                imageVector = Icons.Default.Person,
-                                contentDescription = "Username Icon",
+                                imageVector = Icons.Default.Email,
+                                contentDescription = "Email Icon",
                                 tint = MaterialTheme.colorScheme.primary
                             )
                         }
@@ -117,17 +116,12 @@ fun LoginScreen(navController: NavHostController) {
                     )
                     Spacer(modifier = Modifier.height(Dimensions.lg))
 
-                    Button(
+                    MButton(
                         onClick = { navController.navigate(Screen.Main.route) {
                             popUpTo(Screen.Login.route) { inclusive = true }
                         }},
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(48.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onSecondaryContainer)
-                    ) {
-                        Text("Login")
-                    }
+                        text = "Login",
+                    )
                     SignUpPrompt(onSignUpClick = { navController.navigate(Screen.SignUp.route) })
                 }
 
