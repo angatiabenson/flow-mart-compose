@@ -8,6 +8,7 @@ import ke.co.banit.flowmart.presentation.screens.auth.login.LoginScreen
 import ke.co.banit.flowmart.presentation.screens.auth.signup.SignUpScreen
 import ke.co.banit.flowmart.presentation.screens.main.MainScreen
 import ke.co.banit.flowmart.presentation.screens.product.CreateProductScreen
+import ke.co.banit.flowmart.presentation.screens.product.ViewProductsScreen
 import ke.co.banit.flowmart.presentation.screens.splash.SplashScreen
 
 /**
@@ -39,6 +40,10 @@ fun AppNavigation() {
 
         composable(Screen.CreateProduct.route) {
             CreateProductScreen(navController = navController)
+        }
+
+        composable(Screen.ViewProducts.route) {
+            ViewProductsScreen(navController = navController)
         }
     }
 }
