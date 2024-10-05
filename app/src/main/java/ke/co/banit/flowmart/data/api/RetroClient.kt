@@ -31,6 +31,7 @@ class RetroClient {
             })
             .addInterceptor(mHttpLoggingInterceptor)
             .build()
+
         private var instance: APIService? = null
 
         fun getApi(): APIService {
