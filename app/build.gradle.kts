@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -73,4 +75,34 @@ dependencies {
 
     //Icons
     implementation(libs.font.awesome)
+
+    // Retrofit for network calls
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // OkHttp for logging HTTP requests and responses
+    implementation(libs.logging.interceptor)
+
+    // Hilt for Dependency Injection
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    // Hilt with Jetpack Compose
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Kotlin Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Navigation Component
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
+    // ViewModel and LiveData
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    //Logging
+    implementation(libs.timber)
 }

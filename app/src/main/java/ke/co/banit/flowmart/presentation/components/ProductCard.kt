@@ -22,7 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import ke.co.banit.flowmart.data.model.Product
+import ke.co.banit.flowmart.data.mapper.Product
 import ke.co.banit.flowmart.presentation.theme.Dimensions
 
 /**

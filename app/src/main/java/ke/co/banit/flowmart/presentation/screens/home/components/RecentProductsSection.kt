@@ -14,7 +14,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import ke.co.banit.flowmart.data.model.Product
+import ke.co.banit.flowmart.data.mapper.Product
 import ke.co.banit.flowmart.presentation.components.ProductCard
 
 /**

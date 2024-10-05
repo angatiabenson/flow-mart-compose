@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Flow Mart Compose</string>
+    <string name="api_base_url">https://flowmart.banit.co.ke/</string>
 </resources>

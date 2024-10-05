@@ -1,4 +1,4 @@
-package ke.co.banit.flowmart.data.model
+package ke.co.banit.flowmart.data.mapper
 
 /**
  * @Author: Angatia Benson

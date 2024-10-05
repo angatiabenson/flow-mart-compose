@@ -12,8 +12,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import ke.co.banit.flowmart.data.model.Product
-import ke.co.banit.flowmart.data.model.SummaryData
+import ke.co.banit.flowmart.data.mapper.Product
+import ke.co.banit.flowmart.data.mapper.SummaryData
 import ke.co.banit.flowmart.presentation.components.CategoryCreationBottomSheet
 import ke.co.banit.flowmart.presentation.navigation.Screen
 import ke.co.banit.flowmart.presentation.screens.home.components.GreetingSection

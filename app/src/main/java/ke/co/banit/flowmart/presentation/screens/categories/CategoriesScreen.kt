@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.dp
 import compose.icons.FontAwesomeIcons
 import compose.icons.fontawesomeicons.Solid
 import compose.icons.fontawesomeicons.solid.FolderPlus
-import ke.co.banit.flowmart.data.model.Category
+import ke.co.banit.flowmart.data.mapper.Category
 import ke.co.banit.flowmart.presentation.components.CategoryCreationBottomSheet
 import ke.co.banit.flowmart.presentation.components.MDropdownMenu
 import ke.co.banit.flowmart.presentation.components.MDropdownMenuItem

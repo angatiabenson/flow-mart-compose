@@ -13,7 +13,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import ke.co.banit.flowmart.data.model.Product
+import ke.co.banit.flowmart.data.mapper.Product
 import ke.co.banit.flowmart.presentation.components.MScreenTitle
 import ke.co.banit.flowmart.presentation.components.MTopAppBar
 import ke.co.banit.flowmart.presentation.components.ProductCard
@@ -69,7 +69,6 @@ fun ProductList(
     modifier: Modifier = Modifier, products: List<Product>, onEditProduct: (Product) -> Unit,
     onDeleteProduct: (Product) -> Unit
 ) {
-
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         state = rememberLazyListState()
