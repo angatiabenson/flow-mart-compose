@@ -114,4 +114,7 @@ dependencies {
 
     //animation
     implementation(libs.androidx.animation)
+
+    //DataStore
+    implementation(libs.androidx.datastore.preferences)
 }

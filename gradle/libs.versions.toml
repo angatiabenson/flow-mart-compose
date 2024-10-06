@@ -2,6 +2,7 @@
 agp = "8.7.0"
 animation = "1.7.3"
 converterGson = "2.9.0"
+datastorePreferences = "1.1.1"
 fontAwesome = "1.1.1"
 hiltAndroid = "2.52"
 hiltNavigationCompose = "1.2.0"
@@ -24,6 +25,7 @@ timber = "5.0.1"
 [libraries]
 androidx-animation = { module = "androidx.compose.animation:animation", version.ref = "animation" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }

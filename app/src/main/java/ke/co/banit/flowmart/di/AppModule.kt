@@ -1,9 +1,12 @@
 package ke.co.banit.flowmart.di
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import ke.co.banit.flowmart.core.DataStoreManager
 import ke.co.banit.flowmart.data.api.APIService
 import ke.co.banit.flowmart.data.api.RetroClient
 
@@ -20,4 +23,10 @@ object AppModule {
     fun provideApiService(): APIService {
         return RetroClient.getApi()
     }
+
+    @Provides
+    fun provideDataStoreManager(@ApplicationContext context: Context): DataStoreManager {
+        return DataStoreManager(context)
+    }
+
 }

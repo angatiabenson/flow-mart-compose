@@ -8,9 +8,13 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import ke.co.banit.flowmart.core.SessionManager
 import ke.co.banit.flowmart.presentation.components.ThemedAppLogo
 import ke.co.banit.flowmart.presentation.navigation.Screen
 import ke.co.banit.flowmart.presentation.theme.Dimensions
@@ -23,13 +27,29 @@ import java.util.Calendar
  * Copyright (c) 2024 BanIT
  */
 @Composable
-fun SplashScreen(navController: NavHostController) {
+fun SplashScreen(navController: NavHostController, viewModel: SplashViewModel = hiltViewModel()) {
     val currentYear: Int = Calendar.getInstance().get(Calendar.YEAR)
 
-    LaunchedEffect(key1 = true) {
-        delay(3000) // 3 seconds delay
-        navController.navigate(Screen.Login.route) {
-            popUpTo(Screen.Splash.route) { inclusive = true }
+    val isLoggedIn by viewModel.isLoggedIn.collectAsState()
+    val user by viewModel.user.collectAsState()
+
+    // Update SessionManager with API key
+    LaunchedEffect(user.apiKey) {
+        if (user.apiKey.isNotEmpty()) {
+            SessionManager.apiKey = user.apiKey
+        }
+    }
+
+    LaunchedEffect(isLoggedIn) {
+        delay(2000) // Optional delay
+        if (isLoggedIn && user.apiKey.isNotEmpty()) {
+            navController.navigate(Screen.Main.route) {
+                popUpTo(Screen.Splash.route) { inclusive = true }
+            }
+        } else {
+            navController.navigate(Screen.Login.route) {
+                popUpTo(Screen.Splash.route) { inclusive = true }
+            }
         }
     }
     Surface(

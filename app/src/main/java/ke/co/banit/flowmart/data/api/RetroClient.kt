@@ -2,6 +2,7 @@ package ke.co.banit.flowmart.data.api
 
 import ke.co.banit.flowmart.App
 import ke.co.banit.flowmart.R
+import ke.co.banit.flowmart.core.SessionManager
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -25,7 +26,7 @@ class RetroClient {
                 val requestBuilder = chain.request().newBuilder()
                 requestBuilder.addHeader(
                     "Authorization",
-                    ""
+                    "Bearer ${SessionManager.apiKey}"
                 )
                 chain.proceed(requestBuilder.build())
             })
