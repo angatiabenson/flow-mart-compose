@@ -1,9 +1,7 @@
 package ke.co.banit.flowmart.presentation.screens.product.components
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.Search
@@ -38,10 +36,10 @@ fun MSearchBar(modifier: Modifier = Modifier) {
         inputField = {
             SearchBarDefaults.InputField(
                 query = searchQuery,
-                onQueryChange = { searchQuery = it  },
+                onQueryChange = { searchQuery = it },
                 onSearch = { active = false },
                 expanded = active,
-                onExpandedChange = {active = it},
+                onExpandedChange = { active = it },
                 enabled = true,
                 placeholder = { Text("Search", style = MaterialTheme.typography.bodyMedium) },
                 leadingIcon = {
@@ -55,9 +53,9 @@ fun MSearchBar(modifier: Modifier = Modifier) {
                     if (active)
                         Icon(
                             modifier = Modifier.clickable {
-                                if(searchQuery.isNotEmpty()){
+                                if (searchQuery.isNotEmpty()) {
                                     searchQuery = ""
-                                }else{
+                                } else {
                                     active = false
                                 }
                             },
@@ -68,7 +66,7 @@ fun MSearchBar(modifier: Modifier = Modifier) {
             )
         },
         expanded = active,
-        onExpandedChange = {active = it},
+        onExpandedChange = { active = it },
         modifier = modifier
             .fillMaxWidth(),
         shape = SearchBarDefaults.inputFieldShape,

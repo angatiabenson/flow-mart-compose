@@ -1,6 +1,7 @@
 package ke.co.banit.flowmart.domain.usecase
 
 import ke.co.banit.flowmart.core.DataStoreManager
+import ke.co.banit.flowmart.core.SessionManager
 import ke.co.banit.flowmart.data.dto.requests.LoginRequest
 import ke.co.banit.flowmart.data.dto.response.AuthResponse
 import ke.co.banit.flowmart.data.dto.response.toDomain
@@ -23,7 +24,9 @@ class LoginUseCase @Inject constructor(
         val result = repository.login(LoginRequest(email = email, password = password))
         result.onSuccess {
             dataStoreManager.setLoginStatus(true)
-            dataStoreManager.setUser(it.toDomain())
+            val user = it.toDomain()
+            dataStoreManager.setUser(user)
+            SessionManager.apiKey = user.apiKey
         }
         return result
     }

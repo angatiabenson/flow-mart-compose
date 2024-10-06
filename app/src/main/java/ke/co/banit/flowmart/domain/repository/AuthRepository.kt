@@ -3,7 +3,6 @@ package ke.co.banit.flowmart.domain.repository
 import ke.co.banit.flowmart.data.dto.requests.LoginRequest
 import ke.co.banit.flowmart.data.dto.requests.RegisterRequest
 import ke.co.banit.flowmart.data.dto.response.AuthResponse
-import retrofit2.Response
 
 /**
  * @Author: Angatia Benson

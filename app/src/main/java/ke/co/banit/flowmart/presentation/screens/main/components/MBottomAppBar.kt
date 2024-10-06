@@ -33,7 +33,10 @@ import ke.co.banit.flowmart.presentation.navigation.Screen
 fun MBottomAppBar(modifier: Modifier = Modifier, navController: NavController) {
     val items = listOf(Screen.Home, Screen.Categories, Screen.Profile)
     var selectedItem by remember { mutableIntStateOf(0) }
-    NavigationBar(modifier = modifier.height(80.dp), containerColor = MaterialTheme.colorScheme.background, ) {
+    NavigationBar(
+        modifier = modifier.height(80.dp),
+        containerColor = MaterialTheme.colorScheme.background,
+    ) {
         items.forEachIndexed { index, screen ->
             NavigationBarItem(
                 icon = {

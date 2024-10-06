@@ -39,7 +39,11 @@ class DataStoreManager @Inject constructor(private val context: Context) {
         .catch { exception ->
             emit(emptyPreferences())
         }
-        .shareIn(scope = CoroutineScope(Dispatchers.IO), started = SharingStarted.Eagerly, replay = 1)
+        .shareIn(
+            scope = CoroutineScope(Dispatchers.IO),
+            started = SharingStarted.Eagerly,
+            replay = 1
+        )
 
 
     suspend fun setLoginStatus(isLoggedIn: Boolean) {
@@ -74,7 +78,6 @@ class DataStoreManager @Inject constructor(private val context: Context) {
                 apiKey = preferences[API_KEY] ?: ""
             )
         }
-
 
 
     suspend fun clearUserData() {

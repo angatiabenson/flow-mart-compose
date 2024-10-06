@@ -6,9 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -23,10 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import compose.icons.FontAwesomeIcons
 import compose.icons.fontawesomeicons.Solid
-import compose.icons.fontawesomeicons.solid.Box
 import compose.icons.fontawesomeicons.solid.FolderPlus
 import ke.co.banit.flowmart.presentation.theme.Dimensions
 
@@ -69,7 +64,9 @@ fun CategoryCreationBottomSheet(
                 Text(
                     "Organize your content efficiently by creating a new category. Please enter a unique name for the category below.",
                     style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(bottom = Dimensions.md).fillMaxWidth(),
+                    modifier = Modifier
+                        .padding(bottom = Dimensions.md)
+                        .fillMaxWidth(),
                     textAlign = TextAlign.Start
                 )
                 Spacer(modifier = Modifier.height(Dimensions.sm))

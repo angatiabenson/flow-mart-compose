@@ -1,6 +1,5 @@
 package ke.co.banit.flowmart.presentation.screens.profile
 
-import androidx.annotation.Dimension
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,11 +15,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -33,7 +29,6 @@ import androidx.compose.ui.unit.dp
 import ke.co.banit.flowmart.presentation.components.MButton
 import ke.co.banit.flowmart.presentation.components.MOutlinedTextField
 import ke.co.banit.flowmart.presentation.components.MScreenTitle
-import ke.co.banit.flowmart.presentation.components.ThemedAppLogo
 import ke.co.banit.flowmart.presentation.theme.Dimensions
 
 /**

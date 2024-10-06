@@ -18,7 +18,7 @@ import ke.co.banit.flowmart.R
  * Copyright (c) 2024 BanIT
  */
 @Composable
-fun ThemedAppLogo(modifier: Modifier = Modifier, size:Dp = 120.dp) {
+fun ThemedAppLogo(modifier: Modifier = Modifier, size: Dp = 120.dp) {
     // Detect if the system is in dark theme
     val isDarkTheme = isSystemInDarkTheme()
 

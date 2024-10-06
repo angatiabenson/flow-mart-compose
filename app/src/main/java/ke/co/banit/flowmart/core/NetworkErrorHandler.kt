@@ -42,9 +42,11 @@ object NetworkErrorHandler {
                 }
                 errorResponse?.message ?: "HTTP Error ${exception.code()}: ${exception.message()}"
             }
+
             is IOException -> {
                 "Network error, please check your internet connection."
             }
+
             else -> {
                 "Unexpected error, ${exception.message}"
             }

@@ -32,7 +32,6 @@ import ke.co.banit.flowmart.presentation.theme.Dimensions
  */
 
 
-
 @Composable
 fun ProductCard(
     product: Product,
