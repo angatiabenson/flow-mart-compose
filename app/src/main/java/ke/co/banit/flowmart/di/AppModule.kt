@@ -20,5 +20,4 @@ object AppModule {
     fun provideApiService(): APIService {
         return RetroClient.getApi()
     }
-
 }
